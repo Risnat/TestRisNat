@@ -1,0 +1,95 @@
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+<?php
+include("connexion.php");
+?>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Brand</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="nav navbar-nav">
+                    <li class="active" role="presentation"><a href="#">First Item</a></li>
+                    <li role="presentation"><a href="#">Second Item</a></li>
+                    <li role="presentation"><a href="#">Third Item</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">SIO </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="#">Equipe </a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Etudiants <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#">1ère Année</a></li>
+                            <li role="presentation"><a href="#">2 ème Année</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="#">Trombinoscope </a></li>
+                        </ul>
+                    </li>
+                    <li role="presentation"><a href="#">Cours </a></li>
+                    <li role="presentation"><a href="#">Projets </a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" role="presentation">
+                        <a href="#"> <i class="glyphicon glyphicon-user"></i> Se connecter</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#"> <i class="glyphicon glyphicon-log-in"></i> S'inscrire</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1><strong>BTS SIO - LANNION</strong></h1>
+        <p>J'entends et j'<strong>oublie</strong>, Je vois et je me <strong>souviens,</strong> Je fais et je <strong>comprends</strong> </p>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+
+<?php
+$requete = $connexion->prepare('SELECT nom_etudiant from etudiant');
+$requete->execute();
+$lignes = $requete->fetchAll();
+foreach($lignes as $ligne)
+{
+echo ($ligne["nom_etudiant"]);
+echo ('</br>');
+}
+?>
+
+           
+			<div class="col-md-3 al >
+			<div class="col-lg-12 ">
+                <div class="card">
+                    <img class="img-circle" src="assets/img/etudiant.jpg">
+                    <div class="card-block">
+                        <h5 class="text-bold">Tawshif Ahsan Khan</h5>
+                    </div>
+                </div>
+            </div>
+			
+			
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
